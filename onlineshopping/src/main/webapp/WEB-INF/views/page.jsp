@@ -27,7 +27,9 @@
 </script>
 
 <!-- Bootstrap core CSS -->
-<link href="${css}/bootstrap.min.css" rel="stylesheet">
+<link href="${css}/bootstrap.css" rel="stylesheet">
+<link href="${css}/bootstrap-grid.css" rel="stylesheet">
+
 
 <link href="${css}/bootstrap-orange-theme.css" rel="stylesheet">
 
@@ -67,7 +69,8 @@
 
 		<!-- Bootstrap core JavaScript -->
 		<script src="${js}/jquery.js"></script>
-		<script src="${js}/bootstrap.bundle.min.js"></script>
+		<script src="${js}/bootstrap.bundle.js"></script>
+		<script src="${js}/bootstrap.js"></script>
 		<script src="${js}/myapp.js"></script>
 
 	</div>
