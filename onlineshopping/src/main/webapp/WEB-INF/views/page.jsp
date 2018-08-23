@@ -38,6 +38,7 @@
 
 <link href="${css}/myapp.css" rel="stylesheet">
 
+
 </head>
 
 <body>
@@ -64,9 +65,14 @@
 			<c:if test="${userClickAllProducts == true or userClickCategoryProducts == true}">
 				<%@include file="listProducts.jsp"%>
 			</c:if>
+			
+			<c:if test="${userClickShowProduct == true}">
+				<%@include file="singleProduct.jsp"%>
+			</c:if>
 		</div>
 		<!-- Footer -->
 		<%@include file="./shared/footer.jsp"%>
+		
 
 
 		<!-- Bootstrap core JavaScript -->
@@ -74,7 +80,7 @@
 		<script src="${js}/bootstrap.min.js"></script>
 		<script src="${js}/bootstrap.js"></script>
 		<script src="${js}/jquery.dataTables.js"></script>
-		<!-- <script src="${js}/dataTables.bootstrap.js"></script>  -->
+		<!-- <script src="${js}/dataTables.bootstrap.js"></script>   -->
 		<script src="${js}/myapp.js"></script>
 
 	</div>
