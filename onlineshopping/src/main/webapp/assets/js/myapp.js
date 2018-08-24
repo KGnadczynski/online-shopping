@@ -12,6 +12,9 @@ $(function(){
 	case 'All Products':
 		$('#listProducts').addClass('active');
 		break;
+	case 'Manage Products':
+		$('#manageProducts').addClass('active');
+		break;	
 	default:
 		if(menu == "Home") break;
 		$('#listProducts').addClass('active');
@@ -63,7 +66,13 @@ $(function(){
 					}
 				},
 				{
-					data: 'quantity'
+					data: 'quantity',
+					mRender: function(data, type, row) {
+						if(data<1) {
+							return '<p>Out of stock!</p>';
+						}
+						return data;
+					}
 				},
 				{
 					data: 'id',
@@ -72,7 +81,15 @@ $(function(){
 						
 						var str = '';
 						str += '<a href="'+window.contextRoot+ '/show/'+data+'/product">View</a><br>';
-						str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product">Add to cart</a>';
+						
+						if(row.quantity<1) {
+							str += ' ';
+							
+						}
+						else {
+							str += '<a href="'+window.contextRoot+ '/cart/add/'+data+'/product">Add to cart</a>';
+						}
+						
 						
 						return str;
 						
@@ -80,7 +97,16 @@ $(function(){
 				}
 				
 			]
-		})
+		});
+	}
+	
+	var $alert = $('alert');
+	
+	if($alert.length) {
+		
+		setTimeout(function(){
+			$alert.fadeOut('slow');
+		}, 3000)
 	}
 	
 	
