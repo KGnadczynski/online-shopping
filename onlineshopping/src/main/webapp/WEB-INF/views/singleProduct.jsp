@@ -25,7 +25,7 @@
 		
 			<div class="thumbnail">
 				
-				<img src="${images}/${product.code}.png" style="height:200px;"/>
+				<img src="${images}/${product.code}.jpg" style="height:200px;"/>
 			
 			</div>
 		
