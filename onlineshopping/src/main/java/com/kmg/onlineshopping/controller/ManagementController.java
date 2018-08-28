@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.kmg.onlineshopping.util.FileUploadUtility;
+import com.kmg.onlineshopping.validator.ProductValidator;
 import com.kmg.shoppingbackend.dao.CategoryDAO;
 import com.kmg.shoppingbackend.dao.ProductDAO;
 import com.kmg.shoppingbackend.dto.Category;
@@ -63,6 +64,8 @@ public class ManagementController {
 	@RequestMapping(value="/products", method=RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model,
 			HttpServletRequest request) {
+		
+		new ProductValidator().validate(mProduct, results);
 		
 		if(results.hasErrors()) {
 			
