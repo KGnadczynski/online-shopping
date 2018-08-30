@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 @Entity
@@ -16,6 +17,9 @@ public class Cart implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+	
+	@OneToOne
+	private User user;
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
@@ -54,9 +58,6 @@ public class Cart implements Serializable {
 		return "Cart [id=" + id + ", grandTotal=" + grandTotal + ", cartLines=" + cartLines + "]";
 	}
 	
-	// linking the cart with a user
-	@OneToOne
-	private User user;
 	public User getUser() {
 		return user;
 	}

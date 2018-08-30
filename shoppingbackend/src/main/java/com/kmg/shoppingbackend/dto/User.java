@@ -45,6 +45,9 @@ public class User implements Serializable{
 	@Transient
 	private String confirmPassword;
 
+	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	private Cart cart;
+	
 	public String getConfirmPassword() {
 		return confirmPassword;
 	}
@@ -109,8 +112,7 @@ public class User implements Serializable{
 	}
 	
 	
-	@OneToOne(mappedBy="user", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	private Cart cart;
+	
 	public Cart getCart() {
 		return cart;
 	}
